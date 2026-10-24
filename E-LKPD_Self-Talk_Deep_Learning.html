@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-LKPD Self-Talk Berbasis Deep Learning</title>
+<style>
+:root{--navy:#17324d;--blue:#2767a8;--teal:#168a83;--gold:#f3bd55;--paper:#f4f7fb;--ink:#243447;--muted:#62748a;--line:#dce5ef;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(125deg,#17324d,#2767a8 70%,#168a83);color:white;padding:28px 18px 34px}
+.wrap{max-width:1050px;margin:auto}.topline{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:700}
+h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;margin:12px 0}.lead{max-width:760px;font-size:1.04rem;opacity:.95}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid #ffffff65;background:#ffffff18;border-radius:99px;padding:5px 11px;font-size:.83rem}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 12px #17324d0b}
+.navinner{max-width:1050px;margin:auto;display:flex;gap:5px;overflow:auto;padding:8px 12px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--navy);font-size:.87rem;font-weight:650;padding:8px 11px;border-radius:9px}nav a:hover{background:#eaf2fb}
+main{max-width:1050px;margin:24px auto;padding:0 14px 50px}.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:22px;margin-bottom:16px;box-shadow:0 6px 22px #17324d08}
+h2{font-size:1.45rem;color:var(--navy);margin:0 0 12px}h3{color:var(--navy);margin:16px 0 7px;font-size:1.08rem}
+.kicker{color:var(--teal);text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;font-weight:800}
+.objectives{padding-left:20px}.objective{margin:6px 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{padding:15px;border-radius:13px;background:#f1f7fc;border:1px solid #dceaf6}.step b{display:block;color:var(--blue);font-size:1.02rem}
+.callout{background:#fff7e6;border-left:4px solid var(--gold);padding:13px 15px;border-radius:8px;margin:12px 0}
+.info{background:#eaf8f6;border-left:4px solid var(--teal);padding:13px 15px;border-radius:8px;margin:12px 0}
+label{display:block;font-weight:650;margin:13px 0 5px}input[type=text],textarea,select{width:100%;border:1px solid #cbd7e4;border-radius:10px;padding:11px 12px;font:inherit;color:var(--ink);background:white}
+textarea{min-height:90px;resize:vertical}input:focus,textarea:focus,select:focus{outline:3px solid #2767a825;border-color:var(--blue)}
+.small{font-size:.88rem;color:var(--muted)}.choice{display:flex;gap:9px;align-items:flex-start;font-weight:450;margin:8px 0}.choice input{margin-top:6px;accent-color:var(--teal)}
+.scenario{border:1px solid var(--line);border-radius:12px;padding:15px;margin:12px 0;background:#fbfdff}
+.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.btn{border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:750;cursor:pointer;background:var(--blue);color:white}.btn.secondary{background:#e8eef5;color:var(--navy)}.btn.teal{background:var(--teal)}.btn:hover{filter:brightness(.96)}
+.progressbox{height:10px;background:#e4ebf3;border-radius:99px;overflow:hidden;margin:10px 0}.progressbar{height:100%;background:linear-gradient(90deg,var(--teal),#61c7b4);width:0%;transition:width .25s}
+table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#edf4fa;color:var(--navy)}
+.scale{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #edf1f5}.scale select{max-width:180px}
+footer{text-align:center;color:var(--muted);padding:25px 15px;font-size:.86rem}
+@media(max-width:720px){.hero-grid,.steps{grid-template-columns:1fr}.card{padding:17px}.scale{grid-template-columns:1fr}.scale select{max-width:none}main{margin-top:15px}}
+@media print{nav,.btnrow,.no-print{display:none!important}body{background:white}.card{box-shadow:none;break-inside:avoid;border:1px solid #aaa}main{max-width:none;margin:0;padding:0}.progressbox{border:1px solid #aaa}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="topline">Lembar Kerja Peserta Didik Elektronik • Bimbingan dan Konseling</div>
+<h1>Kenali Pikiranmu,<br>Bangun Keyakinan Akademikmu</h1>
+<p class="lead">E-LKPD Teknik <em>Self-Talk</em> Berbasis Pembelajaran Mendalam (<em>Deep Learning</em>) untuk membantu siswa SMA mengenali dialog batin, menyusun kalimat yang realistis dan mendukung, serta meningkatkan keyakinan menghadapi tugas akademik.</p>
+<div class="pills"><span class="pill">Mindful • Berkesadaran</span><span class="pill">Meaningful • Bermakna</span><span class="pill">Joyful • Menggembirakan</span><span class="pill">Kelas X–XII SMA</span></div>
+</div>
+</header>
+<nav><div class="navinner">
+<a href="#panduan">Panduan</a><a href="#materi">Materi</a><a href="#aktivitas1">Aktivitas 1</a><a href="#aktivitas2">Aktivitas 2</a><a href="#aktivitas3">Aktivitas 3</a><a href="#evaluasi">Evaluasi diri</a><a href="#refleksi">Refleksi</a>
+</div></nav>
+<main>
+<div class="hero-grid">
+<section class="card" id="panduan">
+<div class="kicker">01 • Orientasi</div><h2>Identitas dan tujuan belajar</h2>
+<label for="nama">Nama siswa</label><input id="nama" type="text" placeholder="Tuliskan nama lengkap">
+<label for="kelas">Kelas</label><input id="kelas" type="text" placeholder="Contoh: X-2">
+<label for="tanggal">Tanggal kegiatan</label><input id="tanggal" type="text" placeholder="Contoh: 23 Oktober 2026">
+<h3>Tujuan pembelajaran</h3>
+<ul class="objectives">
+<li class="objective">Mengenali hubungan antara pikiran, perasaan, dan tindakan saat menghadapi tugas sekolah.</li>
+<li class="objective">Membedakan <em>self-talk</em> yang melemahkan dan yang realistis-mendukung.</li>
+<li class="objective">Mempraktikkan teknik <em>self-talk</em> untuk menghadapi tantangan akademik.</li>
+<li class="objective">Merefleksikan keyakinan diri dan menyusun langkah kecil yang dapat dilakukan.</li>
+</ul>
+<div class="callout"><b>Petunjuk:</b> Kerjakan berurutan, jawab dengan jujur, dan gunakan pengalamanmu sendiri. Tidak ada jawaban yang harus terlihat sempurna. Isian dapat disimpan pada perangkat ini.</div>
+</section>
+<section class="card">
+<div class="kicker">Peta kegiatan</div><h2>Perjalanan belajarmu</h2>
+<div class="steps">
+<div class="step"><b>1. Sadar</b><span class="small">Amati pikiran dan emosi tanpa menghakimi.</span></div>
+<div class="step"><b>2. Maknai</b><span class="small">Hubungkan strategi dengan pengalaman nyata.</span></div>
+<div class="step"><b>3. Praktikkan</b><span class="small">Coba kalimat dukungan dan rencana aksi.</span></div>
+</div>
+<h3>Progres pengisian</h3><div class="progressbox"><div id="progressbar" class="progressbar"></div></div><div id="progressText" class="small">0% bagian terisi</div>
+<p class="small">Progres dihitung dari isian teks dan pilihan yang telah kamu isi. Data tersimpan lokal pada browser/perangkat ini.</p>
+</section>
+</div>
+
+<section class="card" id="materi">
+<div class="kicker">02 • Materi ringkas</div><h2>Apa itu self-talk dan self-efficacy akademik?</h2>
+<p><b><em>Self-talk</em></b> adalah percakapan atau kalimat yang kita ucapkan di dalam hati kepada diri sendiri. Kalimat ini dapat memengaruhi cara kita menafsirkan tantangan, mengelola emosi, dan memilih tindakan.</p>
+<p><b><em>Self-efficacy akademik</em></b> adalah keyakinan seseorang bahwa ia mampu mengatur dan melakukan tindakan yang diperlukan untuk menyelesaikan tugas belajar tertentu. Keyakinan ini bukan berarti selalu berhasil atau selalu merasa percaya diri; keyakinan dapat tumbuh melalui latihan, strategi, dan pengalaman.</p>
+<table><thead><tr><th>Self-talk yang melemahkan</th><th>Self-talk yang realistis dan membantu</th></tr></thead><tbody>
+<tr><td>“Aku bodoh, pasti gagal.”</td><td>“Materi ini sulit bagiku sekarang. Aku bisa mulai dari satu langkah dan meminta bantuan.”</td></tr>
+<tr><td>“Kalau salah, berarti aku tidak mampu.”</td><td>“Kesalahan memberi informasi tentang bagian yang perlu kupelajari lagi.”</td></tr>
+<tr><td>“Aku harus langsung bisa.”</td><td>“Aku tidak harus langsung bisa; aku perlu mencoba strategi yang tepat.”</td></tr>
+</tbody></table>
+<h3>Prinsip pembelajaran mendalam</h3>
+<div class="steps">
+<div class="step"><b>Berkesadaran (Mindful)</b>Kenali pikiran, emosi, dan situasi pemicunya. Berhenti sejenak sebelum bereaksi.</div>
+<div class="step"><b>Bermakna (Meaningful)</b>Hubungkan latihan dengan pengalaman belajar dan tujuan pribadi yang penting.</div>
+<div class="step"><b>Menggembirakan (Joyful)</b>Belajar dalam suasana aman, aktif, dan memberi ruang untuk mencoba tanpa takut dipermalukan.</div>
+</div>
+<div class="info"><b>Ingat:</b> Self-talk bukan berpura-pura bahwa semua akan mudah. Pilih kalimat yang jujur, masuk akal, dan mengarahkanmu pada tindakan. Jika kesulitan terus mengganggu belajar atau keseharian, bicarakan dengan guru BK, guru tepercaya, atau orang dewasa yang mendukung.</div>
+</section>
+
+<section class="card" id="aktivitas1">
+<div class="kicker">03 • Aktivitas 1 — Berkesadaran</div><h2>Menangkap dialog batin</h2>
+<p>Bayangkan situasi akademik yang membuatmu gugup atau ragu. Tarik napas perlahan, lalu amati apa yang muncul di pikiranmu tanpa memberi label baik atau buruk.</p>
+<label for="situasi">Situasi akademik yang menantang</label><textarea id="situasi" data-save placeholder="Contoh: diminta presentasi, menghadapi ulangan matematika, atau mengerjakan tugas besar."></textarea>
+<label for="pikiran">Apa kalimat yang biasanya muncul di pikiranmu?</label><textarea id="pikiran" data-save placeholder="Tuliskan kalimat yang benar-benar sering kamu pikirkan."></textarea>
+<label for="emosi">Apa yang kamu rasakan dan lakukan setelah pikiran itu muncul?</label><textarea id="emosi" data-save placeholder="Contoh: cemas, malu, menunda tugas, atau mulai belajar."></textarea>
+<label for="intensitas">Seberapa kuat keyakinanmu bahwa kamu mampu menghadapi situasi tersebut saat ini?</label>
+<select id="intensitas" data-save><option value="">Pilih skala 0–10</option><option>0 — sama sekali belum yakin</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5 — cukup yakin</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10 — sangat yakin</option></select>
+<p class="small">Skala ini untuk refleksi pribadi, bukan diagnosis atau penilaian klinis.</p>
+</section>
+
+<section class="card" id="aktivitas2">
+<div class="kicker">04 • Aktivitas 2 — Bermakna</div><h2>Mengubah self-talk menjadi dukungan yang realistis</h2>
+<p>Gunakan pola sederhana berikut: <b>Akui tantangan + ingatkan kemampuan/strategi + tentukan langkah kecil.</b></p>
+<div class="scenario"><b>Contoh</b><p>“Aku gugup menghadapi presentasi. Aku pernah menyiapkan tugas dengan baik. Aku akan berlatih pembukaan selama lima menit dan meminta satu teman memberi masukan.”</p></div>
+<label for="pikiranlama">Kalimat lama yang ingin kamu ubah</label><textarea id="pikiranlama" data-save placeholder="Tuliskan self-talk yang membuatmu ragu."></textarea>
+<label for="buktidiri">Bukti atau pengalaman yang menunjukkan kamu pernah berusaha/berhasil</label><textarea id="buktidiri" data-save placeholder="Contoh: pernah menyelesaikan tugas sulit, bertanya kepada guru, atau meningkat setelah latihan."></textarea>
+<label for="pikiranbaru">Self-talk baru yang realistis dan mendukung</label><textarea id="pikiranbaru" data-save placeholder="Gunakan kalimat yang ramah, jujur, dan berorientasi pada proses."></textarea>
+<label for="langkah">Langkah kecil yang akan kamu lakukan dalam 24–48 jam</label><textarea id="langkah" data-save placeholder="Tentukan tindakan spesifik, misalnya latihan 10 menit atau mengerjakan 3 soal."></textarea>
+</section>
+
+<section class="card" id="aktivitas3">
+<div class="kicker">05 • Aktivitas 3 — Menggembirakan</div><h2>Latihan skenario: pilih responsmu</h2>
+<p>Baca situasi berikut. Pilih respons yang paling membantu untuk dicoba, lalu jelaskan alasanmu.</p>
+<div class="scenario">
+<b>Skenario A — Nilai ulangan belum sesuai harapan</b>
+<label class="choice"><input type="radio" name="skenarioA" value="a" data-save> “Aku memang tidak bisa. Lebih baik menyerah.”</label>
+<label class="choice"><input type="radio" name="skenarioA" value="b" data-save> “Nilai ini menunjukkan materi yang perlu kupelajari. Aku akan meninjau dua kesalahan dan bertanya jika belum paham.”</label>
+<label class="choice"><input type="radio" name="skenarioA" value="c" data-save> “Aku harus mendapat nilai sempurna berikutnya, apa pun caranya.”</label>
+<label for="alasanA">Mengapa respons pilihanmu membantu?</label><textarea id="alasanA" data-save placeholder="Jelaskan kaitannya dengan pikiran, perasaan, dan tindakan."></textarea>
+</div>
+<div class="scenario">
+<b>Skenario B — Takut bertanya di kelas</b>
+<label class="choice"><input type="radio" name="skenarioB" value="a" data-save> “Pertanyaanku mungkin sederhana, tetapi bertanya bisa membantuku memahami materi. Aku akan menuliskannya dulu.”</label>
+<label class="choice"><input type="radio" name="skenarioB" value="b" data-save> “Kalau aku bertanya, semua orang pasti menertawakanku.”</label>
+<label class="choice"><input type="radio" name="skenarioB" value="c" data-save> “Aku akan menunggu sampai semua materi kupahami sendiri.”</label>
+<label for="alasanB">Apa satu langkah yang bisa kamu lakukan pada situasi serupa?</label><textarea id="alasanB" data-save placeholder="Tuliskan langkah yang realistis dan dapat dilakukan."></textarea>
+</div>
+</section>
+
+<section class="card" id="evaluasi">
+<div class="kicker">06 • Evaluasi diri</div><h2>Refleksi keyakinan akademik</h2>
+<p>Nilailah keadaanmu saat ini berdasarkan pengalamanmu. Pilihan ini adalah refleksi pembelajaran, <b>bukan instrumen psikologis tervalidasi</b> dan bukan pengganti angket penelitian yang telah diuji.</p>
+<div id="scales">
+<div class="scale"><span>1. Saya yakin dapat memahami materi yang sulit jika mencoba strategi belajar yang sesuai.</span><select data-save aria-label="Pernyataan 1"><option value="">Pilih</option><option value="1">1 — Belum yakin</option><option value="2">2 — Sedikit yakin</option><option value="3">3 — Cukup yakin</option><option value="4">4 — Yakin</option><option value="5">5 — Sangat yakin</option></select></div>
+<div class="scale"><span>2. Saya mampu membagi tugas besar menjadi beberapa langkah kecil.</span><select data-save aria-label="Pernyataan 2"><option value="">Pilih</option><option value="1">1 — Belum yakin</option><option value="2">2 — Sedikit yakin</option><option value="3">3 — Cukup yakin</option><option value="4">4 — Yakin</option><option value="5">5 — Sangat yakin</option></select></div>
+<div class="scale"><span>3. Ketika jawaban saya salah, saya dapat mencoba cara lain atau mencari bantuan.</span><select data-save aria-label="Pernyataan 3"><option value="">Pilih</option><option value="1">1 — Belum yakin</option><option value="2">2 — Sedikit yakin</option><option value="3">3 — Cukup yakin</option><option value="4">4 — Yakin</option><option value="5">5 — Sangat yakin</option></select></div>
+<div class="scale"><span>4. Saya mampu mengelola rasa gugup agar tetap mengerjakan tugas.</span><select data-save aria-label="Pernyataan 4"><option value="">Pilih</option><option value="1">1 — Belum yakin</option><option value="2">2 — Sedikit yakin</option><option value="3">3 — Cukup yakin</option><option value="4">4 — Yakin</option><option value="5">5 — Sangat yakin</option></select></div>
+<div class="scale"><span>5. Saya dapat mencari dukungan atau sumber belajar saat mengalami kesulitan.</span><select data-save aria-label="Pernyataan 5"><option value="">Pilih</option><option value="1">1 — Belum yakin</option><option value="2">2 — Sedikit yakin</option><option value="3">3 — Cukup yakin</option><option value="4">4 — Yakin</option><option value="5">5 — Sangat yakin</option></select></div>
+</div>
+<label for="perubahan">Setelah aktivitas ini, apa perubahan yang kamu rasakan pada cara berpikir atau keyakinanmu?</label><textarea id="perubahan" data-save placeholder="Tuliskan dengan jujur, termasuk jika belum ada perubahan."></textarea>
+<div class="info">Untuk penelitian, gunakan instrumen self-efficacy akademik yang sesuai dengan definisi operasional, ditelaah ahli, diuji validitas dan reliabilitasnya, serta ikuti prosedur etik dan persetujuan sekolah/orang tua bila diperlukan.</div>
+</section>
+
+<section class="card" id="refleksi">
+<div class="kicker">07 • Penutup</div><h2>Komitmen dan refleksi akhir</h2>
+<label for="pelajaran">Hal terpenting yang saya pelajari hari ini</label><textarea id="pelajaran" data-save placeholder="Satu hal yang paling bermakna bagimu."></textarea>
+<label for="komitmen">Kalimat self-talk yang ingin saya ingat</label><textarea id="komitmen" data-save placeholder="Contoh: Aku bisa berkembang melalui latihan dan bantuan yang tepat."></textarea>
+<label for="dukungan">Orang atau sumber dukungan yang dapat saya hubungi</label><textarea id="dukungan" data-save placeholder="Contoh: guru BK, guru mata pelajaran, teman belajar, atau keluarga."></textarea>
+<label class="choice"><input type="checkbox" id="selesai" data-save> Saya sudah mengisi kegiatan dan menentukan satu langkah nyata.</label>
+<div class="btnrow no-print">
+<button class="btn teal" onclick="saveNow()">Simpan jawaban</button>
+<button class="btn" onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+<button class="btn secondary" onclick="downloadAnswers()">Unduh jawaban (.txt)</button>
+<button class="btn secondary" onclick="resetAnswers()">Hapus semua isian</button>
+</div>
+<p id="status" class="small" aria-live="polite">Isian disimpan otomatis di browser ini.</p>
+</section>
+<section class="card">
+<h2>Catatan untuk guru BK / peneliti</h2>
+<ul>
+<li>E-LKPD ini merupakan prototipe kegiatan psikoedukasi dan latihan reflektif; lakukan penyesuaian terhadap usia, konteks sekolah, kebutuhan peserta, serta alokasi waktu.</li>
+<li>Rancangan dapat dilakukan dalam 1–2 pertemuan (misalnya 40–60 menit), dilanjutkan praktik mandiri dan refleksi.</li>
+<li>Komponen pembelajaran mendalam diterapkan melalui kesadaran terhadap pikiran, pengaitan dengan pengalaman autentik, dan aktivitas yang aman serta partisipatif.</li>
+<li>Untuk menyimpulkan adanya peningkatan self-efficacy, lakukan pengukuran sebelum-sesudah menggunakan instrumen yang layak, prosedur penelitian yang tepat, dan analisis data yang sesuai. E-LKPD saja tidak membuktikan efektivitas.</li>
+</ul>
+<p class="small"><b>Rancangan kegiatan:</b> pengembangan awal untuk ditelaah dan diuji coba. Referensi konsep dapat mencakup teori self-efficacy Albert Bandura, pendekatan self-talk dalam psikologi kognitif-perilaku, serta panduan resmi pembelajaran mendalam dari kementerian yang berlaku. Lengkapi daftar pustaka dan sumber sesuai pedoman kampus/sekolah sebelum digunakan sebagai produk penelitian final.</p>
+</section>
+</main>
+<footer>Berlatih bukan berarti harus langsung sempurna. Setiap langkah kecil adalah bagian dari proses belajar.</footer>
+<script>
+const fields = [...document.querySelectorAll('[data-save]')];
+const key = 'elkpd_selftalk_deep_learning_v1';
+function getVal(el){ if(el.type==='radio') return el.checked ? el.value : null; if(el.type==='checkbox') return el.checked; return el.value; }
+function saveNow(){
+  const data={};
+  fields.forEach((el,i)=>{const k=el.id || (el.name ? el.name+'_'+el.value : 'field_'+i); if(el.type==='radio'){if(el.checked)data[k]=el.value;}else data[k]=getVal(el);});
+  try{localStorage.setItem(key,JSON.stringify(data)); document.getElementById('status').textContent='Jawaban tersimpan pada browser/perangkat ini.';}catch(e){document.getElementById('status').textContent='Penyimpanan otomatis tidak tersedia. Gunakan tombol Unduh jawaban.';}
+  updateProgress();
+}
+function loadSaved(){
+ try{const data=JSON.parse(localStorage.getItem(key)||'{}');fields.forEach((el,i)=>{const k=el.id || (el.name ? el.name+'_'+el.value : 'field_'+i); if(!(k in data))return;if(el.type==='radio')el.checked=(data[k]===el.value);else if(el.type==='checkbox')el.checked=!!data[k];else el.value=data[k];});}catch(e){}
+ updateProgress();
+}
+function updateProgress(){
+ const relevant=fields.filter(el=>el.type==='radio'?el.checked:true);
+ const done=relevant.filter(el=>el.type==='checkbox'?el.checked:el.value.trim()!=='').length;
+ const total=fields.filter(el=>el.type!=='radio').length + [...new Set(fields.filter(el=>el.type==='radio').map(el=>el.name))].length;
+ const pct=Math.round(done/Math.max(total,1)*100);
+ document.getElementById('progressbar').style.width=pct+'%';
+ document.getElementById('progressText').textContent=pct+'% bagian terisi';
+}
+fields.forEach(el=>el.addEventListener('input',saveNow));
+fields.forEach(el=>el.addEventListener('change',saveNow));
+function downloadAnswers(){
+ const lines=['E-LKPD SELF-TALK BERBASIS DEEP LEARNING','Nama: '+(document.getElementById('nama').value||'-'),'Kelas: '+(document.getElementById('kelas').value||'-'),'Tanggal: '+(document.getElementById('tanggal').value||'-'),''];
+ const seen=new Set();
+ fields.forEach((el,i)=>{let label='';if(el.id){const lab=document.querySelector('label[for="'+el.id+'"]');label=lab?lab.innerText:el.id;}else if(el.type==='radio'){if(seen.has(el.name))return;seen.add(el.name);const chosen=fields.find(x=>x.type==='radio'&&x.name===el.name&&x.checked);label='Pilihan '+el.name;lines.push(label+': '+(chosen?chosen.parentElement.innerText.trim():'Belum dijawab'));return;}else label=el.getAttribute('aria-label')||'Pernyataan';let val=el.type==='checkbox'?(el.checked?'Ya':'Belum'):el.value;if(val)lines.push(label+': '+val);});
+ const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='jawaban-e-lkpd-self-talk.txt';a.click();URL.revokeObjectURL(a.href);
+}
+function resetAnswers(){if(!confirm('Yakin ingin menghapus semua isian yang tersimpan di browser ini?'))return;localStorage.removeItem(key);fields.forEach(el=>{if(el.type==='radio'||el.type==='checkbox')el.checked=false;else el.value='';});updateProgress();document.getElementById('status').textContent='Semua isian telah dihapus dari browser ini.';}
+loadSaved();
+</script>
+</body>
+</html>
